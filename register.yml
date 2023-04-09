@@ -1,6 +1,6 @@
 ---
 - name: register hosts
-  hosts: all
+  hosts: prod
   vars: 
   - password: []
   - username: []
