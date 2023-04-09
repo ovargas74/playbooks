@@ -1,9 +1,6 @@
 ---
 - name: register hosts
   hosts: prod
-  vars: 
-  - password: []
-  - username: []
   tasks: 
   - name: unregister
     command: subscription-manager unregister
