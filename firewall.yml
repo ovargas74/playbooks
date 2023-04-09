@@ -1,0 +1,10 @@
+---
+- name: firewall config
+  hosts: all
+  tasks: 
+  - name: add port
+    firewalld: 
+      port: 80/tcp
+      state: enabled
+      immediate: yes
+      permanent: yes
