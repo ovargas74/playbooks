@@ -1,0 +1,23 @@
+---
+- name: register hosts
+  hosts: all
+  vars: 
+  - password: []
+  - username: []
+  tasks: 
+  - name: unregister
+    command: subscription-manager unregister
+    ignore_errors: yes
+  - name: remove subscriptions
+    command: subscription-manager remove --all
+  - name: refresh
+    command: subscription-manager refresh
+    ignore_errors: yes
+  - name: register
+    command: subscription-manager register --username={{username}} --password={{password}}
+  - name: attach 
+    command: subscription-manager attach --auto
+  - name: update rhel7&8 nodes
+    shell: 
+      cmd: yum update -y 
+    
