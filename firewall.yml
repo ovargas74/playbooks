@@ -4,7 +4,8 @@
   tasks: 
   - name: add port
     firewalld: 
-      port: 80/tcp
+      port: "{{item}}"
       state: enabled
       immediate: yes
       permanent: yes
+    loop: [80/tcp,443/tcp]
